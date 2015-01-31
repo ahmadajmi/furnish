@@ -1,0 +1,16 @@
+{
+  "name": "trustious",
+  "version": "1.0.0",
+  "authors": [
+    "Ahmad Ajmi <ahmad@ahmadajmi.com>"
+  ],
+  "description": "Trustious Profile Page",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "trustious",
+  "version": "1.0.0",
+  "description": "Trustious Profile Page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmad Ajmi",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-haml": "^0.1.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.0.0-rc3",
+    "gulp": "^3.8.10",
+    "gulp-jshint": "^1.9.0",
+    "gulp-sass": "^1.3.2",
+    "gulp-watch": "^4.1.0",
+    "run-sequence": "^1.0.2"
+  }
+}
