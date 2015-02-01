@@ -2,9 +2,20 @@
 %html
   %head
     %title Trustious
-    %link(type="text/css" rel="stylesheet" href="styles/main.css")
-    %script(src="js/app.js")
+    %link{type: "text/css", rel: "stylesheet",href: "styles/main.css"}
 
-  %body
+  %body{ng-app: "Trust"}
     %h2 Hello
     %p Trustious
+
+    %div{ng-controller: "profileController"}
+      {{profile.name}}
+
+    %div{ng-controller: "reviewsController"}
+      %ul
+        %li{ng-repeat: "review in reviews"}
+          %input{ng-model: "review.done", type: "checkbox"}
+          %span{class: "done-{{review.done}}"} {{review.name}} - {{ review.body }}
+
+    %script{src: "bower_components/angular/angular.js"}
+    %script{src: "js/app.js"}

@@ -39,6 +39,22 @@ gulp.task('hint', function(){
 });
 
 
+// Copy bower_components
+
+gulp.task('copy:bower_components', function(){
+  return gulp.src('./app/bower_components/**/*')
+    .pipe(gulp.dest('./build/bower_components'));
+});
+
+
+// Copy Data
+
+gulp.task('copy:data', function(){
+  return gulp.src('./app/data/**/*')
+    .pipe(gulp.dest('./build/data'));
+});
+
+
 // Watch Files & Reload
 
 gulp.task('serve', function(){
@@ -61,10 +77,15 @@ gulp.task('clean', function(){
 });
 
 
+// Build
+
+gulp.task('build', ['clean'], function(){
+  runSequence('haml', 'hint', 'sass', 'copy:bower_components', 'copy:data')
+});
+
+
 // Gulp Default
 
 gulp.task('default', ['clean'], function(){
-
-  runSequence('haml', 'hint', 'sass')
-
+  gulp.start('build');
 });

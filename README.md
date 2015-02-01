@@ -1,11 +1,14 @@
 #### Installation
 
-Make sure to you have node installed then
+Make sure you have Node.js installed then the following commands to
+
+Install Node packages
 
 ```
 npm install
 ```
 
+Install Bower packages
 
 ```
 bower install
@@ -13,13 +16,15 @@ bower install
 
 ##### Build
 
+This will build all the files to the build directory
+
 ```
-gulp
+gulp build
 ```
 
 ##### Development mode
 
-To start the development mode
+This will start the development mode and initialize a localhost server to preview and watch file changes as you code.
 
 ```
 gulp serve
