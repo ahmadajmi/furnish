@@ -1,6 +1,7 @@
 // Include Gulp & tools
 
 var gulp        = require('gulp');
+var del         = require('del');
 var jshint      = require('gulp-jshint');
 var watch       = require('gulp-watch');
 var haml        = require('gulp-haml');
@@ -22,9 +23,9 @@ gulp.task('haml', function(){
 // SASS
 
 gulp.task('sass', function () {
-  return gulp.src('./app/sass/*.scss')
+  return gulp.src('./app/styles/*.scss')
   .pipe(sass())
-  .pipe(gulp.dest('./build/css'));
+  .pipe(gulp.dest('./build/styles'));
 });
 
 
@@ -48,14 +49,21 @@ gulp.task('serve', function(){
   });
 
   gulp.watch(['./app/index.haml'], ['haml', reload]);
-  gulp.watch('./app/sass/**/*.scss', ['sass', reload]);
+  gulp.watch('./app/styles/**/*.scss', ['sass', reload]);
   gulp.watch('./app/js/**/*.js', ['hint', reload]);
 });
 
 
-// Watch Files For Changes
+// Clean the Build Output Directory
 
-gulp.task('default', function(){
+gulp.task('clean', function(){
+ del(['build/*']);
+});
+
+
+// Gulp Default
+
+gulp.task('default', ['clean'], function(){
 
   runSequence('haml', 'hint', 'sass')
 
