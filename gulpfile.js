@@ -6,11 +6,13 @@ var jshint      = require('gulp-jshint');
 var watch       = require('gulp-watch');
 var haml        = require('gulp-haml');
 var sass        = require('gulp-sass');
+var minifycss   = require('gulp-minify-css');
 var imagemin    = require('gulp-imagemin');
 var pngquant    = require('imagemin-pngquant');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 var concat      = require('gulp-concat');
+var rename      = require('gulp-rename');
 var reload      = browserSync.reload;
 var browserify  = require('browserify');
 var source      = require('vinyl-source-stream');
@@ -29,6 +31,8 @@ gulp.task('haml', function() {
 gulp.task('sass', function () {
   return gulp.src('./app/styles/*.scss')
   .pipe(sass())
+  .pipe(rename({suffix: '.min'}))
+  .pipe(minifycss())
   .pipe(gulp.dest('./build/styles'));
 });
 
