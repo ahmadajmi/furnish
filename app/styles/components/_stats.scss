@@ -1,0 +1,19 @@
+//
+// Stats used for display simple key/value info like followers & following numbers
+//
+
+.stats { border-top: 1px solid #CCD1E4; }
+
+.stat {
+  float: left;
+  width: 33%;
+  padding: .5rem;
+}
+
+.stat-label { font-size: 0.707rem; }
+
+.stat-value {
+  display: block;
+  font-weight: bold;
+  color: #596575;
+}

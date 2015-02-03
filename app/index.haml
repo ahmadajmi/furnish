@@ -5,17 +5,53 @@
     %link{type: "text/css", rel: "stylesheet",href: "styles/main.min.css"}
 
   %body{ng-app: "Trust"}
-    %h2 Hello
-    %p Trustious
 
-    %div{ng-controller: "profileController"}
-      {{profile.name}}
+    -# Header
+    %header{class: "site-header"}
+      .row
+        .column.small-6.large-4
+          %a.logo{href: "#"} Trustious
 
-    %div{ng-controller: "reviewsController"}
-      %ul
-        %li{ng-repeat: "review in reviews"}
-          %input{ng-model: "review.done", type: "checkbox"}
-          %span{class: "done-{{review.done}}"} {{review.name}} - {{ review.body }}
+    -# Profile Banner
+    .row
+      .column.small-12.large-4{ng-controller: "profileController"}
+
+        .profile
+
+          .profile-header
+            .profile-cover
+              .profile-cover-img
+
+            .profile-avatar
+              %img.profile-avatar-img{src: "images/profile-avatar.jpg", alt: "Ahmad Profile Image"}
+
+          .text-center
+            %h4.profile-name {{profile.name}}
+
+            %p.profile-bio
+              Reading - Writing - Coding
+
+            %a.button.button-primary{href: "#"} Trust
+
+            %ul.stats.list-bare.clearfix
+              %li.stat
+                %span.stat-value 843
+                %span.stat-label Level
+
+              %li.stat
+                %span.stat-value 11
+                %span.stat-label Awards
+
+              %li.stat
+                %span.stat-value 120
+                %span.stat-label Trusters
+
+      .column.small-6.large-8
+        %div{ng-controller: "reviewsController"}
+          %ul
+            %li{ng-repeat: "review in reviews"}
+              %input{ng-model: "review.done", type: "checkbox"}
+              %span{class: "done-{{review.done}}"} {{review.name}} - {{ review.body }}
 
     %script{src: "bower_components/angular/angular.js"}
     %script{src: "js/app.js"}
