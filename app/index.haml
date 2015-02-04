@@ -31,7 +31,7 @@
             %p.profile-bio
               {{profile.description}}
 
-            %a.button.button-primary{href: "#"} Trust
+            %button.button{ng-class: "{'button-primary': !profile.trusted}", ng-click: "trust()"} Trust
 
             %ul.stats.list-bare.clearfix
               %li.stat
@@ -47,10 +47,5 @@
                 %span.stat-label Trusters
 
       .column.small-6.large-8
-        %div{ng-controller: "reviewsController"}
-          %ul
-            %li{ng-repeat: "review in reviews"}
-              %input{ng-model: "review.done", type: "checkbox"}
-              %span{class: "done-{{review.done}}"} {{review.name}} - {{ review.body }}
 
     %script{src: "js/app.js"}

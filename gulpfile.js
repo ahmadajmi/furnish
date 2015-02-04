@@ -18,6 +18,7 @@ var reload      = browserSync.reload;
 var browserify  = require('browserify');
 var source      = require('vinyl-source-stream');
 
+
 // HAML
 
 gulp.task('haml', function() {
@@ -50,7 +51,7 @@ gulp.task('js', function(){
 });
 
 
-// Browserify
+// Browserify - Not used yet
 
 gulp.task('browserify', function() {
   return browserify('./app/js/app.js')
@@ -101,6 +102,7 @@ gulp.task('serve', function() {
   gulp.watch(['./app/index.haml'], ['haml', reload]);
   gulp.watch('./app/styles/**/*.scss', ['sass', reload]);
   gulp.watch('./app/js/**/*.js', ['js', reload]);
+  gulp.watch('./app/data/**/*.json', ['copy:data', reload]);
 });
 
 

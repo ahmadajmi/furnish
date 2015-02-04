@@ -8,5 +8,6 @@
   "created_at": "Fri Jan 5 00:00:00 +0000 2014",
   "level": 14,
   "awards": 4,
-  "trusters": 60
+  "trusters": 6,
+  "trusted": false
 }
