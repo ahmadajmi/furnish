@@ -20,30 +20,30 @@
 
           .profile-header
             .profile-cover
-              .profile-cover-img
+              %img.profile-cover-img{src: "{{profile.profile_banner_image_url}}"}
 
             .profile-avatar
-              %img.profile-avatar-img{src: "images/profile-avatar.jpg", alt: "Ahmad Profile Image"}
+              %img.profile-avatar-img{src: "{{profile.profile_image_url}}", alt: "Ahmad Ajmi Profile Image"}
 
           .text-center
             %h4.profile-name {{profile.name}}
 
             %p.profile-bio
-              Reading - Writing - Coding
+              {{profile.description}}
 
             %a.button.button-primary{href: "#"} Trust
 
             %ul.stats.list-bare.clearfix
               %li.stat
-                %span.stat-value 843
+                %span.stat-value {{profile.level}}
                 %span.stat-label Level
 
               %li.stat
-                %span.stat-value 11
+                %span.stat-value {{profile.awards}}
                 %span.stat-label Awards
 
               %li.stat
-                %span.stat-value 120
+                %span.stat-value {{profile.trusters}}
                 %span.stat-label Trusters
 
       .column.small-6.large-8
@@ -53,5 +53,4 @@
               %input{ng-model: "review.done", type: "checkbox"}
               %span{class: "done-{{review.done}}"} {{review.name}} - {{ review.body }}
 
-    %script{src: "bower_components/angular/angular.js"}
     %script{src: "js/app.js"}

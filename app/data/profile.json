@@ -1,1 +1,12 @@
-{"name":"Ahmad Ajmi","level":4,"awards":4,"helpers":12,"trusters":6}
+{
+  "id": "112",
+  "name": "Ahmad Ajmi",
+  "nickname": "ahmadajmi",
+  "description": "Reading - Writing - Coding",
+  "profile_image_url": "../images/profile-avatar.jpg",
+  "profile_banner_image_url": "../images/profile-cover-img.jpg",
+  "created_at": "Fri Jan 5 00:00:00 +0000 2014",
+  "level": 14,
+  "awards": 4,
+  "trusters": 60
+}

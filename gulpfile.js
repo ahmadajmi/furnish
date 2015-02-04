@@ -12,6 +12,7 @@ var pngquant    = require('imagemin-pngquant');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 var concat      = require('gulp-concat');
+var uglify      = require('gulp-uglify')
 var rename      = require('gulp-rename');
 var reload      = browserSync.reload;
 var browserify  = require('browserify');
@@ -39,9 +40,11 @@ gulp.task('sass', function () {
 
 // Lint JavaScript
 
-gulp.task('jshint', function(){
-  return gulp.src('./app/js/**/*.js')
+gulp.task('js', function(){
+  return gulp.src(['./app/bower_components/angular/angular.js', './app/js/app.js'])
+    .pipe(concat('app.js'))
     .pipe(jshint())
+    .pipe(uglify())
     .pipe(gulp.dest('./build/js'))
     .pipe(jshint.reporter('default'));
 });
@@ -97,7 +100,7 @@ gulp.task('serve', function() {
 
   gulp.watch(['./app/index.haml'], ['haml', reload]);
   gulp.watch('./app/styles/**/*.scss', ['sass', reload]);
-  gulp.watch('./app/js/**/*.js', ['jshint', 'browserify', reload]);
+  gulp.watch('./app/js/**/*.js', ['js', reload]);
 });
 
 
@@ -111,7 +114,7 @@ gulp.task('clean', function() {
 // Build
 
 gulp.task('build', ['clean'], function() {
-  runSequence('haml', 'sass', 'images', 'jshint', 'copy:bower_components', 'copy:data')
+  runSequence('haml', 'sass', 'images', 'js', 'copy:bower_components', 'copy:data')
 });
 
 
