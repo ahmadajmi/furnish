@@ -1,0 +1,24 @@
+//
+// Tabs
+//
+
+.tabs-nav {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+  background-color: #fff;
+}
+
+.tab-item {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.tab-item-link {
+  padding: 1em;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tab-item--active { border-bottom: 2px solid #06A5D5; }

@@ -1,0 +1,31 @@
+.profile.margin-bottom-one
+
+  .profile-header
+    .flex-embed
+      %img.flex-embed-item{ng-src: "{{ profile.profile_banner_image_url }}"}
+
+    .profile-avatar
+      %img.profile-avatar-img.avatar-medium.circle{ng-src: "{{ profile.profile_image_url }}", alt: "{{ profile.name }} Profile Image"}
+
+  .text-center
+    %h4.profile-name {{ profile.name }}
+
+    %p.profile-bio
+      {{ profile.description }}
+
+    .hide
+      %button.button{ng-class: "{'button-primary': !profile.trusted}", ng-click: "trust()"} {{ buttonText }}
+    %trust-button
+
+    %ul.stats.list-bare.clearfix
+      %li.stat
+        %span.stat-value {{ profile.level }}
+        %span.stat-label Level
+
+      %li.stat
+        %span.stat-value {{ profile.awards }}
+        %span.stat-label Awards
+
+      %li.stat
+        %span.stat-value {{ profile.trusters }}
+        %span.stat-label Trusters

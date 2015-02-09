@@ -1,22 +1,23 @@
 // Include Gulp & tools
 
-var gulp        = require('gulp');
-var del         = require('del');
-var jshint      = require('gulp-jshint');
-var watch       = require('gulp-watch');
-var haml        = require('gulp-haml');
-var sass        = require('gulp-sass');
-var minifycss   = require('gulp-minify-css');
-var imagemin    = require('gulp-imagemin');
-var pngquant    = require('imagemin-pngquant');
-var browserSync = require('browser-sync');
-var runSequence = require('run-sequence');
-var concat      = require('gulp-concat');
-var uglify      = require('gulp-uglify')
-var rename      = require('gulp-rename');
-var reload      = browserSync.reload;
-var browserify  = require('browserify');
-var source      = require('vinyl-source-stream');
+var gulp         = require('gulp');
+var del          = require('del');
+var jshint       = require('gulp-jshint');
+var watch        = require('gulp-watch');
+var haml         = require('gulp-haml');
+var sass         = require('gulp-sass');
+var minifycss    = require('gulp-minify-css');
+var autoprefixer = require('gulp-autoprefixer');
+var imagemin     = require('gulp-imagemin');
+var pngquant     = require('imagemin-pngquant');
+var browserSync  = require('browser-sync');
+var runSequence  = require('run-sequence');
+var concat       = require('gulp-concat');
+var uglify       = require('gulp-uglify')
+var rename       = require('gulp-rename');
+var reload       = browserSync.reload;
+var browserify   = require('browserify');
+var source       = require('vinyl-source-stream');
 
 
 // HAML
@@ -33,6 +34,7 @@ gulp.task('haml', function() {
 gulp.task('sass', function () {
   return gulp.src('./app/styles/*.scss')
   .pipe(sass())
+  .pipe(autoprefixer())
   .pipe(rename({suffix: '.min'}))
   .pipe(minifycss())
   .pipe(gulp.dest('./build/styles'));
@@ -90,6 +92,15 @@ gulp.task('copy:data', function() {
 });
 
 
+// Copy Templates
+
+gulp.task('copy:templates', function() {
+  return gulp.src('./app/Templates/**/*')
+    .pipe(haml())
+    .pipe(gulp.dest('./build/templates'));
+});
+
+
 // Watch Files & Reload
 
 gulp.task('serve', function() {
@@ -103,6 +114,7 @@ gulp.task('serve', function() {
   gulp.watch('./app/styles/**/*.scss', ['sass', reload]);
   gulp.watch('./app/js/**/*.js', ['js', reload]);
   gulp.watch('./app/data/**/*.json', ['copy:data', reload]);
+  gulp.watch('./app/templates/**/*.haml', ['copy:templates', reload]);
 });
 
 
@@ -116,7 +128,7 @@ gulp.task('clean', function() {
 // Build
 
 gulp.task('build', ['clean'], function() {
-  runSequence('haml', 'sass', 'images', 'js', 'copy:bower_components', 'copy:data')
+  runSequence('haml', 'sass', 'images', 'js', 'copy:bower_components', 'copy:data', 'copy:templates');
 });
 
 

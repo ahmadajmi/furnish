@@ -1,0 +1,22 @@
+[
+  {
+    "id": 12,
+    "src": "../images/store-1.jpg",
+    "alt": "Image Alt"
+  },
+  {
+    "id": 12,
+    "src": "../images/store-2.jpg",
+    "alt": "Image Alt"
+  },
+  {
+    "id": 12,
+    "src": "../images/store-3.jpg",
+    "alt": "Image Alt"
+  },
+  {
+    "id": 12,
+    "src": "../images/store-4.jpg",
+    "alt": "Image Alt"
+  }
+]

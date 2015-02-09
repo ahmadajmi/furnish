@@ -1,0 +1,15 @@
+//
+// flex-embed for elements such as images
+//
+
+.flex-embed {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+
+.flex-embed-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

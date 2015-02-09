@@ -43,3 +43,40 @@
 
   &:after { clear: both; }
 }
+
+
+//
+// Colors & Background
+//
+
+.grey { color: #929292; }
+.white-bg { background-color: #fff; }
+.padding-half { padding: 1rem; }
+
+
+//
+// Lists
+//
+
+.no-bullets     { list-style: none; }
+.bullets-inside { list-style: inside; }
+.list-bare {
+  margin: 0;
+  padding: 0;
+  @extend .no-bullets;
+}
+
+
+//
+// Box Model
+//
+
+.hide { display: none; }
+.margin-bottom-one { margin-bottom: 1rem; }
+
+
+//
+// Circle
+//
+
+.circle { border-radius: 50%; }

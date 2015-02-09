@@ -1,51 +1,96 @@
 !!! 5
 %html
   %head
-    %title Trustious
-    %link{type: "text/css", rel: "stylesheet",href: "styles/main.min.css"}
+    %title Furnish
+    %meta{name: "description", content: "Trustious"}
 
-  %body{ng-app: "Trust"}
+    -# Twitter Card Meta
+    %meta{content: "summary", name: "twitter:card"}
+    %meta{content: "@trustious", name: "twitter:site"}
+    %meta{content: "Trustious", name: "twitter:title"}
+    %meta{content: "Trustious", name: "twitter:description"}
+    %meta{content: "images/trustious.png", name:"twitter:image"}
+    %meta{content: "/", name: "twitter:url"}
+
+    -# Open Graph Meta
+    %meta{content: "Trustious", :property: "og:title"}
+    %meta{content: "article", :property: "og:type"}
+    %meta{content: "/", :property: "og:url"}
+    %meta{content: "images/trustious.png", :property: "og:image"}
+    %meta{content: "Trustious", :property: "og:description"}
+    %meta{content: "Trustious", property: "og:site_name"}
+
+    -# Styles
+    %link{type: "text/css", rel: "stylesheet", href: "styles/main.min.css"}
+
+    -# Favicon
+    %link{href: "images/trustious.png", rel: "shortcut icon"}
+
+  %body{ng-app: "Profile"}
 
     -# Header
-    %header{class: "site-header"}
+    %header{class: "site-header", role: "banner"}
       .row
         .column.small-6.large-4
           %a.logo{href: "#"} Trustious
 
-    -# Profile Banner
-    .row
-      .column.small-12.large-4{ng-controller: "profileController"}
+    -# Main Section
+    %main.row{role: "main"}
 
-        .profile
+      -# SideBar & Profile Column
+      .column.small-12.medium-4.large-4{ng-controller: "ProfileController as profile"}
+        %profile-card
 
-          .profile-header
-            .profile-cover
-              %img.profile-cover-img{src: "{{profile.profile_banner_image_url}}"}
+      -# Content Section
+      .column.small-12.medium-8.large-8{ng-controller: "TabController"}
+        .nav{role: "navigation"}
+          %ul.list-bare.tabs-nav
+            %li.tab-item{ng-class: "{'tab-item--active': isSet(1)}"}
+              %a.tab-item-link{href: "", ng-click: "setTab(1)"} Reviews
+            %li.tab-item{ng-class: "{'tab-item--active': isSet(2)}"}
+              %a.tab-item-link{href: "", ng-click: "setTab(2)"} Photos
+            %li.tab-item{ng-class: "{'tab-item--active': isSet(3)}"}
+              %a.tab-item-link{href: "", ng-click: "setTab(3)"} Network
 
-            .profile-avatar
-              %img.profile-avatar-img{src: "{{profile.profile_image_url}}", alt: "Ahmad Ajmi Profile Image"}
+        -# Profile Reviews
+        .tab-content{ng-controller: "ProfileReviews", ng-show: "isSet(1)"}
+          .row{ng-repeat: "review in reviews"}
+            .large-12.column
+              .white-bg.padding-half.margin-bottom-one
+                .row
 
-          .text-center
-            %h4.profile-name {{profile.name}}
+                  .large-2.column.text-center
+                    %a.block{href: "#"}
+                      %img.circle.avatar{ng-src: "{{ review.user.image_url }}", alt: "{{ review.user.name }} Profile Image"}
+                      %small.block {{ review.user.name | getFirstName }}
 
-            %p.profile-bio
-              {{profile.description}}
+                  .large-10.column
+                    %a{href: "#"} {{ review.store.name }}
 
-            %button.button{ng-class: "{'button-primary': !profile.trusted}", ng-click: "trust()"} Trust
+                    %p {{ review.description }}
 
-            %ul.stats.list-bare.clearfix
-              %li.stat
-                %span.stat-value {{profile.level}}
-                %span.stat-label Level
+                    .block.small.grey {{ review.created_at | date:'MMM yyyy' }}
 
-              %li.stat
-                %span.stat-value {{profile.awards}}
-                %span.stat-label Awards
+                    %small.hide {{ review.rate }}
 
-              %li.stat
-                %span.stat-value {{profile.trusters}}
-                %span.stat-label Trusters
+        -# Profile Photos
+        .tab-content{ng-controller: "PhotosController", ng-show: "isSet(2)"}
+          .row
+            .large-6.column.margin-bottom-one{ng-repeat: "photo in photos"}
+              .flex-embed
+                %a{href: "#"}
+                  %img{ ng-src: "{{ photo.src }}", alt: "{{ photo.alt }}", class: "flex-embed-item" }
 
-      .column.small-6.large-8
+        -# Profile Network
+        .tab-content{ng-controller: "NetworkController", ng-show: "isSet(3)"}
+          .row
+            .large-6.column.margin-bottom-one{ng-repeat: "profile in network"}
+              %profile-card
+
+    -# Footer
+    .footer.white-bg{role: "contentinfo"}
+      .row
+        .large-12.column
+          %p Trustious
 
     %script{src: "js/app.js"}

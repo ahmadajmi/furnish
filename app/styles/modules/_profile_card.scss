@@ -1,3 +1,7 @@
+//
+// Profile Card
+//
+
 .profile {
   padding: 5px;
   background: #fff;
@@ -9,24 +13,6 @@
   margin-bottom: 3rem;
 }
 
-.profile-cover {
-  position: relative;
-  height: 0;
-  padding: 56.25% 0 0 0;
-}
-
-.profile-cover-img {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .profile-avatar {
   position: absolute;
   left: 50%;
@@ -34,9 +20,6 @@
 }
 
 .profile-avatar-img {
-  width: 75px;
-  height: 75px;
   padding: 2px;
-  border-radius: 50%;
   background-color: #fff;
 }

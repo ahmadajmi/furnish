@@ -1,14 +1,17 @@
 body {
-  color: #333;
   font-family: $font-family;
-  font-weight:400;
+  font-weight: 400;
   line-height: 1.45;
+  color: #333;
   background-color: #F2F2F2;
   -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 1.414rem 0 0.5rem;
   font-weight: inherit;
   line-height: 1.2;
@@ -25,10 +28,15 @@ h3 { font-size: 1.999rem; }
 
 h4 { font-size: 1.414rem; }
 
-small, .font_small { font-size: 0.707rem; }
+small,
+.small { font-size: 0.8125rem; }
 
 p { margin-bottom: 1.3rem; }
 
-a { color: #333; }
+a {
+  color: #333;
 
-a:hover { color: #06a5d5; }
+  &:hover {
+    color: #06a5d5;
+  }
+}
