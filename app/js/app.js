@@ -3,7 +3,8 @@
 
   var app = angular.module('Profile', []);
 
-  app.controller('ProfileController', ['$scope', '$http', function($scope, $http) {
+  app.controller('ProfileController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+    $scope.url = $location.absUrl();
     $http.get('data/profile.json').success(function(data) {
       $scope.profile = data;
     });

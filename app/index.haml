@@ -1,23 +1,27 @@
 !!! 5
-%html
+%html{ng-app: "Profile", ng-controller: "ProfileController"}
   %head
     %title Furnish
     %meta{name: "description", content: "Trustious"}
 
+    -# SEO Meta
+    -# Theses tags should be generated in the Server Side instead of Client Side.
+    -# As the Facebook or Twitter crawlers will not be able to execute JS and will show {{ .. }} instead.
+
     -# Twitter Card Meta
     %meta{content: "summary", name: "twitter:card"}
     %meta{content: "@trustious", name: "twitter:site"}
-    %meta{content: "Trustious", name: "twitter:title"}
-    %meta{content: "Trustious", name: "twitter:description"}
-    %meta{content: "images/trustious.png", name:"twitter:image"}
-    %meta{content: "/", name: "twitter:url"}
+    %meta{content: "{{ profile.name }}", name: "twitter:title"}
+    %meta{content: "{{ profile.description }}", name: "twitter:description"}
+    %meta{content: "{{ profile.profile_image_url }}", name:"twitter:image"}
+    %meta{content: "{{ url }}", name: "twitter:url"}
 
     -# Open Graph Meta
-    %meta{content: "Trustious", :property: "og:title"}
-    %meta{content: "article", :property: "og:type"}
-    %meta{content: "/", :property: "og:url"}
-    %meta{content: "images/trustious.png", :property: "og:image"}
-    %meta{content: "Trustious", :property: "og:description"}
+    %meta{content: "{{ profile.name }}", :property: "og:title"}
+    %meta{content: "profile", :property: "og:type"}
+    %meta{content: "{{ url }}", :property: "og:url"}
+    %meta{content: "{{ profile.profile_image_url }}", :property: "og:image"}
+    %meta{content: "{{ profile.description }}", :property: "og:description"}
     %meta{content: "Trustious", property: "og:site_name"}
 
     -# Styles
@@ -26,7 +30,7 @@
     -# Favicon
     %link{href: "images/trustious.png", rel: "shortcut icon"}
 
-  %body{ng-app: "Profile"}
+  %body
 
     -# Header
     %header{class: "site-header", role: "banner"}
@@ -38,7 +42,7 @@
     %main.row{role: "main"}
 
       -# SideBar & Profile Column
-      .column.small-12.medium-4.large-4{ng-controller: "ProfileController as profile"}
+      .column.small-12.medium-4.large-4{ng-controller: "ProfileController"}
         %profile-card
 
       -# Content Section
