@@ -48,6 +48,14 @@
     };
   });
 
+  app.directive('reviewPanel', function() {
+    return {
+      restrict: 'EA',
+      replace: true,
+      templateUrl: '../templates/review-panel.html'
+    };
+  });
+
   app.directive('trustButton', function() {
     return {
       restrict: 'EA',

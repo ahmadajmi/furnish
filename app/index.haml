@@ -59,23 +59,7 @@
         -# Profile Reviews
         .tab-content{ng-controller: "ProfileReviews", ng-show: "isSet(1)"}
           .row{ng-repeat: "review in reviews"}
-            .large-12.column
-              .white-bg.padding-half.margin-bottom-one
-                .row
-
-                  .large-2.column.text-center
-                    %a.block{href: "#"}
-                      %img.circle.avatar{ng-src: "{{ review.user.image_url }}", alt: "{{ review.user.name }} Profile Image"}
-                      %small.block {{ review.user.name | getFirstName }}
-
-                  .large-10.column
-                    %a{href: "#"} {{ review.store.name }}
-
-                    %p {{ review.description }}
-
-                    .block.small.grey {{ review.created_at | date:'MMM yyyy' }}
-
-                    %small.hide {{ review.rate }}
+            %review-panel
 
         -# Profile Photos
         .tab-content{ng-controller: "PhotosController", ng-show: "isSet(2)"}

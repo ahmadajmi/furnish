@@ -1,6 +1,8 @@
 //
-// Align
+// Helper Classes
 //
+
+// Align
 
 .text-left      { text-align: left; }
 .text-right     { text-align: right; }
@@ -8,9 +10,7 @@
 .text-just      { text-align: justify; }
 
 
-//
 // Display
-//
 
 .inline       { display: inline; }
 .block        { display: block; }
@@ -18,9 +18,7 @@
 .hidden       { display: none; }
 
 
-//
 // Lists
-//
 
 .no-bullets     { list-style: none; }
 .list-bare {
@@ -30,9 +28,7 @@
 }
 
 
-//
 // Clearfix
-//
 
 .clearfix {
   &:before,
@@ -45,18 +41,14 @@
 }
 
 
-//
 // Colors & Background
-//
 
 .grey { color: #929292; }
 .white-bg { background-color: #fff; }
 .padding-half { padding: 1rem; }
 
 
-//
 // Lists
-//
 
 .no-bullets     { list-style: none; }
 .bullets-inside { list-style: inside; }
@@ -67,16 +59,12 @@
 }
 
 
-//
 // Box Model
-//
 
 .hide { display: none; }
 .margin-bottom-one { margin-bottom: 1rem; }
 
 
-//
 // Circle
-//
 
 .circle { border-radius: 50%; }
