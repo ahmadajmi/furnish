@@ -56,6 +56,26 @@
     };
   });
 
+  app.directive('reviewRating', function() {
+    return {
+      restrict: 'A',
+      replace: true,
+      templateUrl: '../templates/review-rating.html',
+      scope: {
+        ratingValue: '=ratingValue',
+        ratingMax: '=ratingMax'
+      },
+      link: function(scope, element, attr) {
+        scope.stars = [];
+        for (var i = 0; i < scope.ratingMax; i++) {
+          scope.stars.push({
+            'star--active': i < scope.ratingValue
+          });
+        }
+      }
+    };
+  });
+
   app.directive('trustButton', function() {
     return {
       restrict: 'EA',

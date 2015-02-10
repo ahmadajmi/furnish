@@ -1,0 +1,16 @@
+//
+// Rating
+//
+
+
+.star {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 12px;
+
+  &:after {
+    content: "\2605";
+  }
+}
+
+.star--active { color: #06A5D5; }

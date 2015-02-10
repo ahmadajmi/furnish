@@ -8,10 +8,13 @@
           %small.block{itemprop: "author"} {{ review.user.name | getFirstName }}
 
       .large-10.column
-        %a{href: "#", itemprop: "name"} {{ review.store.name }}
+        .clearfix
+          .left
+            %a{href: "#", itemprop: "name"} {{ review.store.name }}
+
+          .right
+            .rating{review-rating: , rating-value: "review.rate", rating-max: "5"}
 
         %p{itemprop: "description"} {{ review.description }}
 
         .block.small.grey{itemprop: "datePublished"} {{ review.created_at | date:'MMM yyyy' }}
-
-        %small{itemprop: "ratingValue"} {{ review.rate }}
