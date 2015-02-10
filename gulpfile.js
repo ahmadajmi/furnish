@@ -45,8 +45,8 @@ gulp.task('sass', function () {
 
 gulp.task('js', function(){
   return gulp.src(['./app/bower_components/angular/angular.js', './app/js/app.js'])
-    .pipe(concat('app.js'))
     .pipe(jshint())
+    .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./build/js'))
     .pipe(jshint.reporter('default'));
