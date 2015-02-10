@@ -1,17 +1,17 @@
-.large-12.column
+.large-12.column{itemprop: "review", itemscope itemtype="http://schema.org/Review"}
   .white-bg.padding-half.margin-bottom-one
     .row
 
       .large-2.column.text-center
         %a.block{href: "#"}
           %img.circle.avatar{ng-src: "{{ review.user.image_url }}", alt: "{{ review.user.name }} Profile Image"}
-          %small.block {{ review.user.name | getFirstName }}
+          %small.block{itemprop: "author"} {{ review.user.name | getFirstName }}
 
       .large-10.column
-        %a{href: "#"} {{ review.store.name }}
+        %a{href: "#", itemprop: "name"} {{ review.store.name }}
 
-        %p {{ review.description }}
+        %p{itemprop: "description"} {{ review.description }}
 
-        .block.small.grey {{ review.created_at | date:'MMM yyyy' }}
+        .block.small.grey{itemprop: "datePublished"} {{ review.created_at | date:'MMM yyyy' }}
 
-        %small.hide {{ review.rate }}
+        %small{itemprop: "ratingValue"} {{ review.rate }}

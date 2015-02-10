@@ -1,20 +1,18 @@
-.profile.margin-bottom-one
+.profile.margin-bottom-one{itemscope: "", itemtype: "http://schema.org/Person"}
 
   .profile-header
     .flex-embed
-      %img.flex-embed-item{ng-src: "{{ profile.profile_banner_image_url }}"}
+      %img.flex-embed-item{ng-src: "{{ profile.profile_banner_image_url }}", alt: "{{ profile.name }} Profile Banner Image"}
 
     .profile-avatar
-      %img.profile-avatar-img.avatar-medium.circle{ng-src: "{{ profile.profile_image_url }}", alt: "{{ profile.name }} Profile Image"}
+      %img.profile-avatar-img.avatar-medium.circle{itemprop: "image", ng-src: "{{ profile.profile_image_url }}", alt: "{{ profile.name }} Profile Image"}
 
   .text-center
-    %h4.profile-name {{ profile.name }}
+    %h4.profile-name{itemprop: "name"} {{ profile.name }}
 
-    %p.profile-bio
+    %p.profile-bio{itemprop: "description"}
       {{ profile.description }}
 
-    .hide
-      %button.button{ng-class: "{'button-primary': !profile.trusted}", ng-click: "trust()"} {{ buttonText }}
     %trust-button
 
     %ul.stats.list-bare.clearfix

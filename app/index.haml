@@ -3,6 +3,7 @@
   %head
     %title Furnish
     %meta{name: "description", content: "Trustious"}
+    %meta{name: "keywords", content: "Trustious"}
 
     -# SEO Meta
     -# Theses tags should be generated in the Server Side instead of Client Side.
@@ -17,11 +18,11 @@
     %meta{content: "{{ url }}", name: "twitter:url"}
 
     -# Open Graph Meta
-    %meta{content: "{{ profile.name }}", :property: "og:title"}
-    %meta{content: "profile", :property: "og:type"}
-    %meta{content: "{{ url }}", :property: "og:url"}
-    %meta{content: "{{ profile.profile_image_url }}", :property: "og:image"}
-    %meta{content: "{{ profile.description }}", :property: "og:description"}
+    %meta{content: "{{ profile.name }}", property: "og:title"}
+    %meta{content: "profile", property: "og:type"}
+    %meta{content: "{{ url }}", property: "og:url"}
+    %meta{content: "{{ profile.profile_image_url }}", property: "og:image"}
+    %meta{content: "{{ profile.description }}", property: "og:description"}
     %meta{content: "Trustious", property: "og:site_name"}
 
     -# Styles
