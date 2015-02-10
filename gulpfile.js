@@ -16,8 +16,6 @@ var concat       = require('gulp-concat');
 var uglify       = require('gulp-uglify')
 var rename       = require('gulp-rename');
 var reload       = browserSync.reload;
-var browserify   = require('browserify');
-var source       = require('vinyl-source-stream');
 
 
 // HAML
@@ -50,16 +48,6 @@ gulp.task('js', function(){
     .pipe(uglify())
     .pipe(gulp.dest('./build/js'))
     .pipe(jshint.reporter('default'));
-});
-
-
-// Browserify - Not used yet
-
-gulp.task('browserify', function() {
-  return browserify('./app/js/app.js')
-  .bundle()
-  .pipe(source('app.js'))
-  .pipe(gulp.dest('./build/js'));
 });
 
 
