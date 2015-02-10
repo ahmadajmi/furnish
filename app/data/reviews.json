@@ -9,11 +9,11 @@
     },
     "store": {
       "id": 2,
-      "name": "Istikbal"
+      "name": "Kashan House"
       },
-    "description": "Asfour is the most famous crystal chandeliers in Egypt, there is a vast array to choose from. The hundreds of shining lights and glittering crystals in the showroom make it a magical space, worth seeing even if you don't purchase anything. beside the huge selection of chandeliers and other light fittings, there is a jewelry, 3D laser gifts, and figurines, helpful and knowledgeable sales staff...",
+    "description": "Quality furniture that you don't find in just any old furniture store. A bit pricey, but you get what you pay for. The store is easy to navigate and the sales people are friendly without being pushy. They have so many pieces I like, I think I need a bigger apartment!",
     "created_at": "1288323623006",
-    "rate": 2
+    "rate": 4
   },
   {
     "id": "1",
@@ -25,11 +25,11 @@
     },
     "store": {
       "id": 2,
-      "name": "Istikbal"
+      "name": "Jotun"
       },
-    "description": "Asfour is the most famous crystal chandeliers in Egypt, there is a vast array to choose from. The hundreds of shining lights and glittering crystals in the showroom make it a magical space, worth seeing even if you don't purchase anything. beside the huge selection of chandeliers and other light fittings, there is a jewelry, 3D laser gifts, and figurines, helpful and knowledgeable sales staff...",
+    "description": "This paint is excellent. pricey but well worth it. excellent gloss and colour retention",
     "created_at": "1288323623006",
-    "rate": 2
+    "rate": 5
   },
   {
     "id": "1",
@@ -41,10 +41,10 @@
     },
     "store": {
       "id": 2,
-      "name": "Istikbal"
+      "name": "Ideal House"
       },
-    "description": "Asfour is the most famous crystal chandeliers in Egypt, there is a vast array to choose from. The hundreds of shining lights and glittering crystals in the showroom make it a magical space, worth seeing even if you don't purchase anything. beside the huge selection of chandeliers and other light fittings, there is a jewelry, 3D laser gifts, and figurines, helpful and knowledgeable sales staff...",
+    "description": "Incredible and beautiful home decor. Great staff and great selection in product Great place to pick up cute gifts. A little more on the expensive side, but well worth it",
     "created_at": "1288323623006",
-    "rate": 2
+    "rate": 3
   }
 ]

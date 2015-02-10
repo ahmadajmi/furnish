@@ -61,7 +61,8 @@
       restrict: 'EA',
       templateUrl: '../templates/trust-button.html',
       link: function(scope, element, attr) {
-        scope.buttonText = "Trust";
+
+        scope.buttonText = !scope.profile.trusted ? "Trust" : "Trusted";
 
         scope.trust = function() {
           if (!scope.profile.trusted) {
